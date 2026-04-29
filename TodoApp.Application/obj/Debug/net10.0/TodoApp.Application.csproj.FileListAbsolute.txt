@@ -1,0 +1,16 @@
+C:\Galang\Learn\Backend\TodoApp\TodoApp.Application\bin\Debug\net10.0\TodoApp.Application.deps.json
+C:\Galang\Learn\Backend\TodoApp\TodoApp.Application\bin\Debug\net10.0\TodoApp.Application.dll
+C:\Galang\Learn\Backend\TodoApp\TodoApp.Application\bin\Debug\net10.0\TodoApp.Application.pdb
+C:\Galang\Learn\Backend\TodoApp\TodoApp.Application\bin\Debug\net10.0\TodoApp.Domain.dll
+C:\Galang\Learn\Backend\TodoApp\TodoApp.Application\bin\Debug\net10.0\TodoApp.Domain.pdb
+C:\Galang\Learn\Backend\TodoApp\TodoApp.Application\obj\Debug\net10.0\TodoApp.Application.csproj.AssemblyReference.cache
+C:\Galang\Learn\Backend\TodoApp\TodoApp.Application\obj\Debug\net10.0\TodoApp.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Galang\Learn\Backend\TodoApp\TodoApp.Application\obj\Debug\net10.0\TodoApp.Application.AssemblyInfoInputs.cache
+C:\Galang\Learn\Backend\TodoApp\TodoApp.Application\obj\Debug\net10.0\TodoApp.Application.AssemblyInfo.cs
+C:\Galang\Learn\Backend\TodoApp\TodoApp.Application\obj\Debug\net10.0\TodoApp.Application.csproj.CoreCompileInputs.cache
+C:\Galang\Learn\Backend\TodoApp\TodoApp.Application\obj\Debug\net10.0\TodoApp.Application.sourcelink.json
+C:\Galang\Learn\Backend\TodoApp\TodoApp.Application\obj\Debug\net10.0\TodoApp..05D78BBE.Up2Date
+C:\Galang\Learn\Backend\TodoApp\TodoApp.Application\obj\Debug\net10.0\TodoApp.Application.dll
+C:\Galang\Learn\Backend\TodoApp\TodoApp.Application\obj\Debug\net10.0\refint\TodoApp.Application.dll
+C:\Galang\Learn\Backend\TodoApp\TodoApp.Application\obj\Debug\net10.0\TodoApp.Application.pdb
+C:\Galang\Learn\Backend\TodoApp\TodoApp.Application\obj\Debug\net10.0\ref\TodoApp.Application.dll
