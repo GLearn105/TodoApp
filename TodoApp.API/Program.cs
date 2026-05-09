@@ -1,17 +1,40 @@
+//var builder = WebApplication.CreateBuilder(args);
+
+//// Add services to the container.
+
+//builder.Services.AddControllers();
+//// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
+//builder.Services.AddOpenApi();
+
+//var app = builder.Build();
+
+using TodoApp.Application.Interfaces;
+using TodoApp.Application.Services;
+using TodoApp.Domain.Interfaces;
+using TodoApp.Infrastructure.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+// Daftarkan DI di sini
+builder.Services.AddScoped<TodoApp.Domain.Interfaces.ITodoRepository, TodoRepository>();
+builder.Services.AddScoped<TodoApp.Application.Interfaces.ITodoService, TodoService>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+//// Configure the HTTP request pipeline.
+//if (app.Environment.IsDevelopment())
+//{
+//    app.MapOpenApi();
+//}
+// sesudah
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();

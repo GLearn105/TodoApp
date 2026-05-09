@@ -39,3 +39,6 @@ C:\Galang\Learn\Backend\TodoApp\TodoApp.API\obj\Debug\net10.0\TodoApp.API.pdb
 C:\Galang\Learn\Backend\TodoApp\TodoApp.API\obj\Debug\net10.0\TodoApp.API.genruntimeconfig.cache
 C:\Galang\Learn\Backend\TodoApp\TodoApp.API\obj\Debug\net10.0\ref\TodoApp.API.dll
 C:\Galang\Learn\Backend\TodoApp\TodoApp.API\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
+C:\Galang\Learn\Backend\TodoApp\TodoApp.API\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Galang\Learn\Backend\TodoApp\TodoApp.API\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Galang\Learn\Backend\TodoApp\TodoApp.API\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll

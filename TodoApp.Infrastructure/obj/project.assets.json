@@ -2,19 +2,6 @@
   "version": 3,
   "targets": {
     "net10.0": {
-      "TodoApp.Application/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v10.0",
-        "dependencies": {
-          "TodoApp.Domain": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/TodoApp.Application.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/TodoApp.Application.dll": {}
-        }
-      },
       "TodoApp.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
@@ -28,11 +15,6 @@
     }
   },
   "libraries": {
-    "TodoApp.Application/1.0.0": {
-      "type": "project",
-      "path": "../TodoApp.Application/TodoApp.Application.csproj",
-      "msbuildProject": "../TodoApp.Application/TodoApp.Application.csproj"
-    },
     "TodoApp.Domain/1.0.0": {
       "type": "project",
       "path": "../TodoApp.Domain/TodoApp.Domain.csproj",
@@ -41,7 +23,7 @@
   },
   "projectFileDependencyGroups": {
     "net10.0": [
-      "TodoApp.Application >= 1.0.0"
+      "TodoApp.Domain >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -77,8 +59,8 @@
           "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
-            "C:\\Galang\\Learn\\Backend\\TodoApp\\TodoApp.Application\\TodoApp.Application.csproj": {
-              "projectPath": "C:\\Galang\\Learn\\Backend\\TodoApp\\TodoApp.Application\\TodoApp.Application.csproj"
+            "C:\\Galang\\Learn\\Backend\\TodoApp\\TodoApp.Domain\\TodoApp.Domain.csproj": {
+              "projectPath": "C:\\Galang\\Learn\\Backend\\TodoApp\\TodoApp.Domain\\TodoApp.Domain.csproj"
             }
           }
         }

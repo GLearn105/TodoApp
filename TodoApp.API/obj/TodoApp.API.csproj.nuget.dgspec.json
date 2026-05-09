@@ -62,6 +62,10 @@
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[10.0.7, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[10.1.7, )"
             }
           },
           "imports": [
@@ -1216,8 +1220,8 @@
             "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Galang\\Learn\\Backend\\TodoApp\\TodoApp.Application\\TodoApp.Application.csproj": {
-                "projectPath": "C:\\Galang\\Learn\\Backend\\TodoApp\\TodoApp.Application\\TodoApp.Application.csproj"
+              "C:\\Galang\\Learn\\Backend\\TodoApp\\TodoApp.Domain\\TodoApp.Domain.csproj": {
+                "projectPath": "C:\\Galang\\Learn\\Backend\\TodoApp\\TodoApp.Domain\\TodoApp.Domain.csproj"
               }
             }
           }
