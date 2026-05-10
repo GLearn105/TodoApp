@@ -54,7 +54,10 @@ namespace TodoApp.Application.Services
             todo.Description = dto.Description;
             todo.IsCompleted = dto.IsCompleted;
 
+            //var updated = await _repository.UpdateAsync(todo);
+            //return MapToResponse(updated);
             var updated = await _repository.UpdateAsync(todo);
+            if (updated is null) throw new Exception("Gagal update todo");
             return MapToResponse(updated);
         }
 

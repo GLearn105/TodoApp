@@ -20,8 +20,11 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // Daftarkan DI di sini
-builder.Services.AddScoped<TodoApp.Domain.Interfaces.ITodoRepository, TodoRepository>();
-builder.Services.AddScoped<TodoApp.Application.Interfaces.ITodoService, TodoService>();
+//builder.Services.AddScoped<TodoApp.Domain.Interfaces.ITodoRepository, TodoRepository>();
+//builder.Services.AddScoped<TodoApp.Application.Interfaces.ITodoService, TodoService>();
+
+builder.Services.AddSingleton<ITodoRepository, TodoRepository>();
+builder.Services.AddScoped<ITodoService, TodoService>(); 
 
 var app = builder.Build();
 

@@ -37,19 +37,45 @@ namespace TodoApp.API.Controllers
             return CreatedAtAction(nameof(GetById), new { id = result.Id }, result);
         }
 
+        //[HttpPut("{id}")]
+        //public async Task<IActionResult> Update(Guid id, [FromBody] UpdateTodoDto dto)
+        //{
+        //    var result = await _service.UpdateAsync(id, dto);
+        //    if (result is null) return NotFound();
+        //    return Ok(result);
+        //}
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(Guid id, [FromBody] UpdateTodoDto dto)
         {
-            var result = await _service.UpdateAsync(id, dto);
-            if (result is null) return NotFound();
-            return Ok(result);
+            try
+            {
+                var result = await _service.UpdateAsync(id, dto);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return NotFound(ex.Message);
+            }
         }
 
+        //[HttpDelete("{id}")]
+        //public async Task<IActionResult> Delete(Guid id)
+        //{
+        //    await _service.DeleteAsync(id);
+        //    return NoContent();
+        //}
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(Guid id)
         {
-            await _service.DeleteAsync(id);
-            return NoContent();
+            try
+            {
+                await _service.DeleteAsync(id);
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                return NotFound(ex.Message);
+            }
         }
     }
 }
