@@ -14,3 +14,5 @@ C:\Galang\Learn\Backend\TodoApp\TodoApp.Infrastructure\obj\Debug\net10.0\TodoApp
 C:\Galang\Learn\Backend\TodoApp\TodoApp.Infrastructure\obj\Debug\net10.0\refint\TodoApp.Infrastructure.dll
 C:\Galang\Learn\Backend\TodoApp\TodoApp.Infrastructure\obj\Debug\net10.0\TodoApp.Infrastructure.pdb
 C:\Galang\Learn\Backend\TodoApp\TodoApp.Infrastructure\obj\Debug\net10.0\ref\TodoApp.Infrastructure.dll
+C:\Galang\Learn\Backend\TodoApp\TodoApp.Infrastructure\bin\Debug\net10.0\TodoApp.Infrastructure.runtimeconfig.json
+C:\Galang\Learn\Backend\TodoApp\TodoApp.Infrastructure\obj\Debug\net10.0\TodoApp.Infrastructure.genruntimeconfig.cache

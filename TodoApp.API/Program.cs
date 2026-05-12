@@ -12,6 +12,8 @@ using TodoApp.Application.Interfaces;
 using TodoApp.Application.Services;
 using TodoApp.Domain.Interfaces;
 using TodoApp.Infrastructure.Repositories;
+using Microsoft.EntityFrameworkCore;
+using TodoApp.Infrastructure.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,8 +25,11 @@ builder.Services.AddSwaggerGen();
 //builder.Services.AddScoped<TodoApp.Domain.Interfaces.ITodoRepository, TodoRepository>();
 //builder.Services.AddScoped<TodoApp.Application.Interfaces.ITodoService, TodoService>();
 
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlite("Data Source=todo.db"));
 builder.Services.AddSingleton<ITodoRepository, TodoRepository>();
-builder.Services.AddScoped<ITodoService, TodoService>(); 
+builder.Services.AddScoped<ITodoService, TodoService>();
+
 
 var app = builder.Build();
 
