@@ -27,7 +27,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite("Data Source=todo.db"));
-builder.Services.AddSingleton<ITodoRepository, TodoRepository>();
+builder.Services.AddScoped<ITodoRepository, EfTodoRepository>();
 builder.Services.AddScoped<ITodoService, TodoService>();
 
 

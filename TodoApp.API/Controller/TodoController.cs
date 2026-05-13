@@ -8,6 +8,8 @@ namespace TodoApp.API.Controllers
     [Route("api/[controller]")]
     public class TodoController : ControllerBase
     {
+        
+        //Async
         private readonly ITodoService _service;
 
         public TodoController(ITodoService service)
@@ -77,5 +79,51 @@ namespace TodoApp.API.Controllers
                 return NotFound(ex.Message);
             }
         }
-    }
+        //sync
+    //    private readonly ITodoService _service;
+
+    //    public TodoController(ITodoService service)
+    //    {
+    //        _service = service;
+    //    }
+
+    //    [HttpGet]
+    //    public IActionResult GetAll()
+    //    {
+    //        var todos = _service.GetAll();
+    //        return Ok(todos);
+    //    }
+
+    //    [HttpGet("{id}")]
+    //    public IActionResult GetById(Guid id)
+    //    {
+    //        var todo = _service.GetById(id);
+    //        if (todo == null) return NotFound();
+    //        return Ok(todo);
+    //    }
+
+    //    [HttpPost]
+    //    public IActionResult Create(CreateTodoDto dto)
+    //    {
+    //        var created = _service.Create(dto);
+    //        return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
+    //    }
+
+    //    [HttpPut("{id}")]
+    //    public IActionResult Update(Guid id, UpdateTodoDto dto)
+    //    {
+    //        var updated = _service.Update(id, dto);
+    //        if (updated == null) return NotFound();
+    //        return Ok(updated);
+    //    }
+
+    //    [HttpDelete("{id}")]
+    //    public IActionResult Delete(Guid id)
+    //    {
+    //        var success = _service.Delete(id);
+    //        if (!success) return NotFound();
+    //        return NoContent();
+    //    }
+    //}
+}
 }

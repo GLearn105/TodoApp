@@ -10,6 +10,7 @@ namespace TodoApp.Application.Services
 {
     public class TodoService : ITodoService
     {
+        //Async
         private readonly ITodoRepository _repository;
 
         public TodoService(ITodoRepository repository)
@@ -81,5 +82,68 @@ namespace TodoApp.Application.Services
                 CreatedAt = todo.CreatedAt
             };
         }
+        //Sync
+        //private readonly ITodoRepository _repo;
+
+        //public TodoService(ITodoRepository repo)
+        //{
+        //    _repo = repo;
+        //}
+
+        //public IEnumerable<TodoItemDto> GetAll()
+        //{
+        //    var todos = _repo.GetAll();
+        //    return todos.Select(t => new TodoItemDto
+        //    {
+        //        Id = t.Id,
+        //        Title = t.Title,
+        //        IsCompleted = t.IsCompleted
+        //    });
+        //}
+
+        //public TodoItemDto? GetById(Guid id)
+        //{
+        //    var todo = _repo.GetById(id);
+        //    if (todo == null) return null;
+        //    return new TodoItemDto
+        //    {
+        //        Id = todo.Id,
+        //        Title = todo.Title,
+        //        IsCompleted = todo.IsCompleted
+        //    };
+        //}
+
+        //public TodoItemDto Create(CreateTodoDto dto)
+        //{
+        //    var todo = new TodoItem { Title = dto.Title };
+        //    var created = _repo.Create(todo);
+        //    return new TodoItemDto
+        //    {
+        //        Id = created.Id,
+        //        Title = created.Title,
+        //        IsCompleted = created.IsCompleted
+        //    };
+        //}
+
+        //public TodoItemDto? Update(Guid id, UpdateTodoDto dto)
+        //{
+        //    var todo = new TodoItem { Id = id, Title = dto.Title, IsCompleted = dto.IsCompleted };
+        //    var updated = _repo.Update(todo);
+        //    if (updated == null) return null;
+        //    return new TodoItemDto
+        //    {
+        //        Id = updated.Id,
+        //        Title = updated.Title,
+        //        IsCompleted = updated.IsCompleted
+        //    };
+        //}
+
+        //public bool Delete(Guid id)
+        //{
+        //    var existing = _repo.GetById(id);
+        //    if (existing == null) return false;
+        //    _repo.Delete(id);
+        //    return true;
+        //}
     }
 }
