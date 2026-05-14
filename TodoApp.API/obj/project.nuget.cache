@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "2UJWSkmnqmE=",
+  "dgSpecHash": "RLLnNfUuwwI=",
   "success": true,
   "projectFilePath": "C:\\Galang\\Learn\\Backend\\TodoApp\\TodoApp.API\\TodoApp.API.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\byeef\\.nuget\\packages\\fluentvalidation\\12.1.1\\fluentvalidation.12.1.1.nupkg.sha512",
+    "C:\\Users\\byeef\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\12.1.1\\fluentvalidation.dependencyinjectionextensions.12.1.1.nupkg.sha512",
     "C:\\Users\\byeef\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\byeef\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.7\\microsoft.aspnetcore.openapi.10.0.7.nupkg.sha512",
     "C:\\Users\\byeef\\.nuget\\packages\\microsoft.build.framework\\18.0.2\\microsoft.build.framework.18.0.2.nupkg.sha512",

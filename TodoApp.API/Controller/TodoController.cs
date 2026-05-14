@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TodoApp.Application.DTOs;
 using TodoApp.Application.Interfaces;
+using TodoApp.Application.Services;
+using FluentValidation;
 
 namespace TodoApp.API.Controllers
 {
@@ -35,17 +37,17 @@ namespace TodoApp.API.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] CreateTodoDto dto)
         {
-            var result = await _service.CreateAsync(dto);
-            return CreatedAtAction(nameof(GetById), new { id = result.Id }, result);
+            try
+            {
+                var result = await _service.CreateAsync(dto);
+                return Ok(result);
+            }
+            catch (ValidationException ex)
+            {
+                return BadRequest(new { errors = ex.Message });
+            }
         }
 
-        //[HttpPut("{id}")]
-        //public async Task<IActionResult> Update(Guid id, [FromBody] UpdateTodoDto dto)
-        //{
-        //    var result = await _service.UpdateAsync(id, dto);
-        //    if (result is null) return NotFound();
-        //    return Ok(result);
-        //}
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(Guid id, [FromBody] UpdateTodoDto dto)
         {
@@ -54,9 +56,13 @@ namespace TodoApp.API.Controllers
                 var result = await _service.UpdateAsync(id, dto);
                 return Ok(result);
             }
-            catch (Exception ex)
+            catch (ValidationException ex)
             {
-                return NotFound(ex.Message);
+                return BadRequest(new { errors = ex.Message });
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(new { message = ex.Message });
             }
         }
 

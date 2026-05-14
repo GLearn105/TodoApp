@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "hAgVnV2mrFA=",
+  "dgSpecHash": "d5P03ABiuaw=",
   "success": true,
   "projectFilePath": "C:\\Galang\\Learn\\Backend\\TodoApp\\TodoApp.Application\\TodoApp.Application.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\byeef\\.nuget\\packages\\fluentvalidation\\12.1.1\\fluentvalidation.12.1.1.nupkg.sha512",
+    "C:\\Users\\byeef\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\12.1.1\\fluentvalidation.dependencyinjectionextensions.12.1.1.nupkg.sha512",
+    "C:\\Users\\byeef\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\2.1.0\\microsoft.extensions.dependencyinjection.abstractions.2.1.0.nupkg.sha512"
+  ],
   "logs": []
 }
