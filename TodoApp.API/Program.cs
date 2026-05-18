@@ -7,6 +7,7 @@ using TodoApp.Application.Validators;
 using TodoApp.Domain.Interfaces;
 using TodoApp.Infrastructure.Data;
 using TodoApp.Infrastructure.Repositories;
+using TodoApp.API.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,11 +23,12 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddScoped<ITodoRepository, EfTodoRepository>();
 builder.Services.AddScoped<ITodoService, TodoService>();
 
-// ↓ Tambahkan ini: Daftarkan Validators
+//Validators
 builder.Services.AddScoped<IValidator<CreateTodoDto>, CreateTodoDtoValidator>();
 builder.Services.AddScoped<IValidator<UpdateTodoDto>, UpdateTodoDtoValidator>();
 
 var app = builder.Build();
+app.UseExceptionHandlingMiddleware();
 
 if (app.Environment.IsDevelopment())
 {

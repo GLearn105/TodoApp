@@ -1,11 +1,11 @@
 ﻿using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using TodoApp.Application.DTOs;
 using TodoApp.Application.Interfaces;
 using TodoApp.Domain.Entities;
 using TodoApp.Domain.Interfaces;
+using TodoApp.Domain.Exceptions;
+
+using DomainValidationException = TodoApp.Domain.Exceptions.ValidationException;
 
 namespace TodoApp.Application.Services
 {
@@ -34,16 +34,27 @@ namespace TodoApp.Application.Services
         public async Task<TodoResponseDto?> GetByIdAsync(Guid id)
         {
             var todo = await _repository.GetByIdAsync(id);
-            return todo == null ? null : MapToDto(todo);
+
+            if (todo is null)
+                throw new NotFoundException(nameof(TodoItem), id);
+
+            return MapToDto(todo);
         }
 
         public async Task<TodoResponseDto> CreateAsync(CreateTodoDto dto)
         {
-            var result = await _createValidator.ValidateAsync(dto);
-            if (!result.IsValid)
+            var validationResult = await _createValidator.ValidateAsync(dto);
+
+            if (!validationResult.IsValid)
             {
-                var errors = string.Join(", ", result.Errors.Select(e => e.ErrorMessage));
-                throw new ValidationException(errors);
+                var errors = validationResult.Errors
+                    .GroupBy(e => e.PropertyName)
+                    .ToDictionary(
+                        g => g.Key,
+                        g => g.Select(e => e.ErrorMessage).ToArray()
+                    );
+
+                throw new DomainValidationException(errors);
             }
 
             var todo = new TodoItem
@@ -59,26 +70,40 @@ namespace TodoApp.Application.Services
 
         public async Task<TodoResponseDto> UpdateAsync(Guid id, UpdateTodoDto dto)
         {
-            var result = await _updateValidator.ValidateAsync(dto);
-            if (!result.IsValid)
+            var validationResult = await _updateValidator.ValidateAsync(dto);
+
+            if (!validationResult.IsValid)
             {
-                var errors = string.Join(", ", result.Errors.Select(e => e.ErrorMessage));
-                throw new ValidationException(errors);
+                var errors = validationResult.Errors
+                    .GroupBy(e => e.PropertyName)
+                    .ToDictionary(
+                        g => g.Key,
+                        g => g.Select(e => e.ErrorMessage).ToArray()
+                    );
+
+                throw new DomainValidationException(errors);
             }
 
             var todo = await _repository.GetByIdAsync(id);
-            if (todo == null) throw new KeyNotFoundException($"Todo dengan id {id} tidak ditemukan.");
+
+            if (todo is null)
+                throw new NotFoundException(nameof(TodoItem), id);
 
             todo.Title = dto.Title;
-            todo.Description = dto.Description;
             todo.IsCompleted = dto.IsCompleted;
+            todo.UpdatedAt = DateTime.UtcNow;
 
-            var updated = await _repository.UpdateAsync(todo);
-            return MapToDto(updated);
+            await _repository.UpdateAsync(todo);
+            return MapToDto(todo);
         }
 
         public async Task DeleteAsync(Guid id)
         {
+            var todo = await _repository.GetByIdAsync(id);
+
+            if (todo is null)
+                throw new NotFoundException(nameof(TodoItem), id);
+
             await _repository.DeleteAsync(id);
         }
 
